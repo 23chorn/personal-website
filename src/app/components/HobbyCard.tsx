@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 type HobbyCardProps = {
   name: string;
@@ -13,10 +14,13 @@ export default function HobbyCard({ name, link, icon, username, description, rat
   return (
     <div className="bg-white rounded-lg shadow p-6 flex gap-4 hover:shadow-lg transition">
       {icon && (
-        <img
+        <Image
           src={icon}
           alt={name}
-          className="w-16 h-16 object-contain"
+          width={64}
+          height={64}
+          className="object-contain rounded"
+          unoptimized={icon.endsWith('.svg')}
         />
       )}
       <div>
